@@ -19,7 +19,8 @@
 			reg = <0>;
 			cell-index = <0>;
 			spi-max-frequency = <50000000>;
-			qcom,eeprom-name = "fidelix";			qcom,eeprom-id0 = <0xf8 0x14>;			qcom,eeprom-id1 = <0xef 0x14>;
+			qcom,eeprom-name = "fidelix";
+			qcom,eeprom-id = <0xf8 0x14>;
 
 			qcom,cal-num-blocks = <8>;
 			qcom,cal-page0 = <0 0x0 0 0x0 0 0>;
@@ -180,12 +181,14 @@
 		status = "ok";
 	};
 
+        /* This is mondrian's rear camera */
 	qcom,camera@0 {
 		cell-index = <0>;
 		compatible = "qcom,camera";
 		reg = <0x0>;
 		qcom,csiphy-sd-index = <0>;
 		qcom,csid-sd-index = <0>;
+		qcom,mount-angle = <270>;
 		qcom,actuator-src = <&actuator1>;
 		qcom,led-flash-src = <&led_flash0>;
 		cam_vdig-supply = <&pm8941_lvs2>;
@@ -218,12 +221,14 @@
 		status = "ok";
 	};
 
+        /* This is mondrian's front camera */
  	qcom,camera@2 {
 		cell-index = <2>;
 		compatible = "qcom,camera";
 		reg = <0x2>;
 		qcom,csiphy-sd-index = <2>;
 		qcom,csid-sd-index = <2>;
+		qcom,mount-angle = <270>;
                 cam_vdig-supply = <&pm8941_lvs3>;
 		cam_vana-supply = <&pm8941_lvs3>;
 		cam_vio-supply = <&pm8941_lvs3>;
